@@ -6,29 +6,12 @@ class Node {
 }
 
 function length(head) {
-
     if (!head) return 0;
-
-    let currNode = head;
-    let count = 0;
-
-    while (currNode) {
-        count++;
-        currNode = currNode.next;
-    }
-    return count;
+    return head ? 1 + length(head.next) : null;
 }
 
 function count(head, data) {
-
     if (!head) return 0;
+    return head.data === data ? 1 + count(head.next, data) : count(head.next, data);
 
-    let currNode = head;
-    let count = 0;
-
-    while (currNode) {
-        if (currNode.data === data) count++;
-        currNode = currNode.next;
-    }
-    return count;
 }
